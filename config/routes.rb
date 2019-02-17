@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'chart_sample/index'
+  root to: 'chart_sample#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
