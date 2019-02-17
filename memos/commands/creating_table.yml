@@ -1,0 +1,20 @@
+Category
+  rails g model Category name:string:unique
+
+Subcategory
+  rails g model Subcategory name:string:unique
+
+User
+  rails g model User name:string:unique withdrawal:time
+
+Address
+  rails g model Address user:references postalcode:integer name:string current_address:boolean delivery_address:boolean
+
+Order
+  rails g model Order user:references amount:integer address:references
+
+Item
+  rails g model Item category:refereces subcategory:references name:string:unique price:integer
+
+Cartitem
+  rails g model Cartitem quantity:integer item_id:integer user:references order:references

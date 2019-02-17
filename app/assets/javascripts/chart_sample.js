@@ -1,5 +1,3 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
 window.draw_graph = function () {
   var barNum, bdColors, bgColors, ctx, i, j, labels, myChart, ref;
   ctx = document.getElementById("myChart").getContext('2d');
@@ -19,7 +17,7 @@ window.draw_graph = function () {
       datasets: [
         {
           label: '# of Votes',
-          data: [12, 19, 3, 5, 2, 3],
+          data: gon.data,
           backgroundColor: bgColors,
           borderColor: bdColors,
           borderWidth: 1
