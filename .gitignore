@@ -13,5 +13,6 @@
 /tmp
 
 .history
-# memos/
+memos/
+memos/commands/
 vendor/bundle/
