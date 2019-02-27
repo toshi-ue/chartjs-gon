@@ -11,6 +11,19 @@ window.draw_graph = function () {
       datasets: [
         // 1つめのデータ
         {
+          // 2つめのデータのグラフの種類を選ぶ
+          type: 'line',
+          label: 'ユーザー登録数',
+          data: gon.sign_up_users,
+          // グラフの色の指定
+          backgroundColor: 'rgba(251, 176, 52, 0.8)',
+          // グラフ外枠の色指定
+          borderColor: 'rgba(251, 176, 52, 0.8)',
+          fill: false,
+          yAxisID: "Yの右軸"
+        },
+        // 2つめのデータ
+        {
           // 対応するグラフの説明
           label: '売上',
           // 実際に使うデータ（配列で渡す）
@@ -31,37 +44,40 @@ window.draw_graph = function () {
           pointStyle: 'triangle',
           // マウスオーバー検出の範囲(px)
           pointHitRadius: 5,
-          yAxesID: "Yの左軸"
-        },
-        // 2つめのデータ
-        {
-          // 2つめのデータのグラフの種類を選ぶ
-          type: 'line',
-          label: 'ユーザー登録数',
-          data: gon.sign_up_users,
-          yAxesID: "Yの右軸"
+          yAxisID: "Yの左軸"
         }
       ],
       // グラフが2つであればここにlabelプロパティを記述
       // labels: gon.labels,
     },
     options: {
+      title:{
+        display:true,
+        text: gon.title
+      },
       scales: {
         xAxes:[{}],
         yAxes: [
           {
             id: "Yの左軸",
+            position: "left",
+            scaleLabel:{
+              display: true,
+              labelString: "売上(円)"
+            }
           },
           {
             id: "Yの右軸",
             position: "right",
+            gridLines: false,
             scaleLabel:{
-              display: true
+              display: true,
+              labelString: "登録人数(人)",
             },
             ticks: {
               beginAtZero: true,
               max: 20,
-              stepSize: 3.0
+              stepSize: 4
             }
           }
         ]
