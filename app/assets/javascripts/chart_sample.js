@@ -61,6 +61,11 @@ window.draw_graph = function () {
           {
             id: "Yの左軸",
             position: "left",
+            ticks: {
+              beginAtZero: true,
+              max: gon.value_for_graph,
+              stepSize: gon.value_for_graph / 5
+            },
             scaleLabel:{
               display: true,
               labelString: "売上(円)"
@@ -69,15 +74,15 @@ window.draw_graph = function () {
           {
             id: "Yの右軸",
             position: "right",
-            gridLines: false,
-            scaleLabel:{
-              display: true,
-              labelString: "登録人数(人)",
-            },
             ticks: {
               beginAtZero: true,
               max: 20,
               stepSize: 4
+            },
+            gridLines: false,
+            scaleLabel:{
+              display: true,
+              labelString: "登録人数(人)",
             }
           }
         ]
