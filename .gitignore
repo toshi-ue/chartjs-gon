@@ -13,6 +13,7 @@
 /tmp
 
 .history
-memos/
-memos/commands/
+memos/*
+# memos/commands/
+# memos/commands/creating_table.yml
 vendor/bundle/
