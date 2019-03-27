@@ -58,6 +58,7 @@ window.draw_graph = function () {
       scales: {
         xAxes:[{}],
         yAxes: [
+          // 売上(datasets[1])
           {
             id: "Yの左軸",
             position: "left",
@@ -71,6 +72,7 @@ window.draw_graph = function () {
               labelString: "売上(円)"
             }
           },
+          // 売上(datasets[0])
           {
             id: "Yの右軸",
             position: "right",
@@ -86,6 +88,18 @@ window.draw_graph = function () {
             }
           }
         ]
+      },
+      tooltips:{
+        callbacks:{
+          label: function(tooltipItem, data) {
+            if(tooltipItem.datasetIndex === 1){
+              return '¥' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+            }else{
+              return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index] + '人'
+            }
+            // return data.datasets[1].data[tooltipItem.index]
+          }
+        }
       }
     }
   });
