@@ -17,3 +17,5 @@ memos/*
 # memos/commands/
 # memos/commands/creating_table.yml
 vendor/bundle/
+.ruby-version
+.history
