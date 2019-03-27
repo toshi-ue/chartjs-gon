@@ -94,6 +94,7 @@ window.draw_graph = function () {
         ]
       },
       tooltips:{
+        mode: 'label',
         callbacks:{
           label: function(tooltipItem, data) {
             if(tooltipItem.datasetIndex === 1){
