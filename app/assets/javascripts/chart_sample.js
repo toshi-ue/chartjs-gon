@@ -65,11 +65,15 @@ window.draw_graph = function () {
             ticks: {
               beginAtZero: true,
               max: gon.value_for_graph,
-              stepSize: gon.value_for_graph / 5
+              stepSize: gon.value_for_graph / 5,
+              callback: function (value) {
+                // 1000円以下は切り捨て
+                return Math.ceil(value / 10000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+              }
             },
             scaleLabel:{
               display: true,
-              labelString: "売上(円)"
+              labelString: "売上(万円)"
             }
           },
           // 売上(datasets[0])
