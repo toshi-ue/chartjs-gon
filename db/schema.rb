@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190218042335) do
+ActiveRecord::Schema.define(version: 20190325213051) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer  "user_id",          limit: 4
@@ -48,11 +48,9 @@ ActiveRecord::Schema.define(version: 20190218042335) do
     t.integer  "price",          limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "category_id",    limit: 4
     t.integer  "subcategory_id", limit: 4
   end
 
-  add_index "items", ["category_id"], name: "index_items_on_category_id", using: :btree
   add_index "items", ["subcategory_id"], name: "index_items_on_subcategory_id", using: :btree
 
   create_table "orders", force: :cascade do |t|
@@ -85,7 +83,6 @@ ActiveRecord::Schema.define(version: 20190218042335) do
   add_foreign_key "addresses", "users"
   add_foreign_key "cartitems", "orders"
   add_foreign_key "cartitems", "users"
-  add_foreign_key "items", "categories"
   add_foreign_key "items", "subcategories"
   add_foreign_key "orders", "addresses"
   add_foreign_key "orders", "users"
